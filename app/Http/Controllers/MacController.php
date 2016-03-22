@@ -1,6 +1,7 @@
 <?php namespace goiaba\Http\Controllers;
 	use Illuminate\Support\Facades\DB;
 	use goiaba\Mac;
+	use goiaba\Usuarios;
 	use Request;
 
 	class MacController extends Controller {
