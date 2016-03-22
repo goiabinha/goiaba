@@ -1,16 +1,21 @@
 <?php namespace goiaba\Http\Controllers;
+	use Illuminate\Foundation\Auth\User;
 	use Illuminate\Support\Facades\DB;
 	use goiaba\Mac;
 	use goiaba\Usuarios;
+	use goiaba\Dispositivo;
 	use Request;
 
 	class MacController extends Controller {
 		public function lista(){
-			$MAC = DB::select('select m.mac,u.nome, d.descricao, m.ticket, m.ativo from mac as m, user as u, dispositivo as d where m.id_user = u.id_user and m.id_dev = d.id_dev');
-			$MACT = DB::select('select count(mac) as mact from mac');
-			$USR = DB::select('select count(distinct(id_user)) as usr from mac goup where id_user != 0');
-		    $AMAC = DB::select('select count(mac) as amac from mac where ativo = 1');
-			$IMAC = DB::select('select count(mac) as imac from mac where ativo = 0');
+			$MAC = Mac::join('dispositivo', 'mac.id_dev', '=', 'dispositivo.id_dev')
+				->join('user', 'mac.id_user', '=', 'user.id_user')
+				->select('mac.mac', 'user.nome', 'mac.ticket', 'mac.ativo', 'dispositivo.descricao')
+				->get();
+			$MACT = Mac::count();
+			$USR = Usuarios::where('id_user','!=',0)->distinct()->count();
+			$AMAC = Mac::where('ativo',1)->count();
+			$IMAC = Mac::where('ativo',0)->count();
 			return view('Mac.lista')->with('MAC', $MAC)
 								->with('MACT', $MACT)
 								->with('USR', $USR)

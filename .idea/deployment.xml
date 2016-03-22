@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="PublishConfigData" autoUpload="Always" serverName="goiaba" uploadOnCheckin="1d4072bb-7afe-46db-90d2-8aaf244e8f65">
+  <component name="PublishConfigData" autoUpload="Always" serverName="goiaba">
     <serverData>
       <paths name="goiaba">
         <serverdata>
@@ -10,7 +10,6 @@
         </serverdata>
       </paths>
     </serverData>
-    <option name="myUploadOnCheckinName" value="goiaba" />
     <option name="myAutoUpload" value="ALWAYS" />
   </component>
 </project>
