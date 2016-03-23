@@ -17,6 +17,7 @@
 				<th>Descricao</th>
 				<th>Ticket</th>
 				<th>Status</th>
+				<th>Detalhe</th>
 			</tr>
 			</thead>
 			<tbody>
@@ -26,7 +27,8 @@
 					<td>{{$M->nome}}</td>
 					<td>{{$M->descricao}}</td>
 					<td>{{$M->ticket}}</td>
-					<td><span class="label {{ $M->ativo ? ' label-success' : 'label-danger' }}"> @if ($M->ativo=='1') Ativo @else Inativo @endif</span></td>
+				    <td><span class="label {{ $M->ativo ? ' label-success' : 'label-danger' }}"> @if ($M->ativo=='1') Ativo @else Inativo @endif</span></td>
+					<td><a href="/macs/detalhe"><span class="fa fa-search-plus "></span></a></td>
 				</tr>
 			@endforeach
 			</tbody>

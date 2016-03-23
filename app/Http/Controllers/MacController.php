@@ -22,4 +22,8 @@
 								->with('AMAC', $AMAC)
 								->with('IMAC', $IMAC);
 			}
+
+		public function mostra(){
+			return view('Mac.detalhe');
+		}
 	}
