@@ -5,20 +5,27 @@
 </head>
 <body>
 <div class="container">
-<h1> Detalhes do MAC Address: <?= $m-> mac ?> </h1>
+<h1> Detalhes do MAC Address:</h1>
 
 <ul>
     <li>
-        <b>Nome:</b> <?= $m->nome ?>
+        <b>Nome:</b>
     </li>
     <li>
-        <b>Descricao:</b> <?= $m->descricao ?>
+        @foreach ($SLMAC as $m)
+            <tr>
+                <td>{{$m->mac}}</td>
+                <td>{{$m->id_user}}</td>
+                <td>{{$m->descricao}}</td>
+                <td>{{$m->ticket}}</td>
+            </tr>
+        @endforeach
     </li>
     <li>
-        <b>Ticket:</b> <?=$m ->ticket ?>
+        <b>Ticket:</b> {$m->ticket}
     </li>
     <li>
-        <b>Status:</b> <span class="label {{ $M->ativo ? ' label-success' : 'label-danger' }}"> @if ($M->ativo=='1') Ativo @else Inativo @endif</span>
+
     </li>
 </ul>
 

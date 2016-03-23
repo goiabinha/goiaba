@@ -2,6 +2,8 @@
     <IfModule mod_negotiation.c>
         Options -MultiViews
     </IfModule>
+    RewriteEngine On
+	RewriteBase /goiaba
 
     RewriteEngine On
 

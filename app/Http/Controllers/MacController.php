@@ -24,6 +24,12 @@
 			}
 
 		public function mostra(){
-			return view('Mac.detalhe');
+			$IDMac = 800;
+
+			$SMAC = Mac::where('id_mac', $IDMac)
+				->select ('mac', 'id_user', 'id_dev', 'ticket')
+				->get();
+
+			return view('Mac.detalhe')->with('SLMAC', $SMAC);
 		}
 	}
