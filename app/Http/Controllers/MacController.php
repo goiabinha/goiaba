@@ -32,4 +32,8 @@
 
 			return view('Mac.detalhe')->with('SLMAC', $SMAC);
 		}
+
+		public function novo(){
+			return view('Mac.fomulario');
+		}
 	}
