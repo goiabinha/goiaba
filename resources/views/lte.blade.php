@@ -13,18 +13,18 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <!-- Bootstrap 3.3.5 -->
 
 
-  <link rel="stylesheet" href="lte/bootstrap/css/bootstrap.min.css">
+  <link href="{{url('lte/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
   <!-- Ionicons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
   <!-- Theme style -->
-  <link rel="stylesheet" href="lte/dist/css/AdminLTE.min.css">
+  <link href="{{url('lte/dist/css/AdminLTE.min.css')}}" rel="stylesheet">
   <!-- AdminLTE Skins. We have chosen the skin-blue for this starter
         page. However, you can choose any other skin. Make sure you
         apply the skin class to the body tag so the changes take effect.
   -->
-  <link rel="stylesheet" href="lte/dist/css/skins/skin-black.min.css">
+  <link href="{{url('lte/dist/css/skins/skin-black.min.css')}}" rel="stylesheet">
 
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -63,9 +63,9 @@ desired effect
     <!-- Logo -->
     <a href="index2.html" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
-      <span class="logo-mini"><img src="lte/dist/img/logo50x50.png"></span>
+      <span class="logo-mini"><img src="{{url('lte/dist/img/logo50x50.png')}}"></span>
       <!-- logo for regular state and mobile devices -->
-      <span class="logo-lg"><img src="lte/dist/img/logo50x50.png">    <b>Goiaba</b></span>
+      <span class="logo-lg"><img src="{{url('lte/dist/img/logo50x50.png')}}">    <b>Goiaba</b></span>
     </a>
 
     <!-- Header Navbar -->
@@ -82,7 +82,7 @@ desired effect
             <!-- Menu toggle button -->
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <i class="fa fa-registered"></i>
-              <span class="label label-primary">{{$MACT}}</span>
+              <span class="label label-primary">{{ $menu["MACT"] }}</span>
             </a>
 
           </li>
@@ -93,7 +93,7 @@ desired effect
             <!-- Menu toggle button -->
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <i class="fa  fa-thumbs-o-up"></i>
-              <span class="label label-success">{{$AMAC}}</span>
+              <span class="label label-success">{{$menu["AMAC"]}}</span>
             </a>
 
           </li>
@@ -102,7 +102,7 @@ desired effect
             <!-- Menu Toggle Button -->
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <i class="fa  fa-thumbs-o-down"></i>
-              <span class="label label-danger">{{$IMAC}}</span>
+              <span class="label label-danger">{{$menu["IMAC"]}}</span>
             </a>
 
           </li>
@@ -111,7 +111,7 @@ desired effect
             <!-- Menu Toggle Button -->
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <i class="fa  fa-users"></i>
-              <span class="label label-warning">{{$USR}}</span>
+              <span class="label label-warning">{{$menu["USR"]}}</span>
             </a>
           </li>
           </ul>
@@ -130,7 +130,7 @@ desired effect
       <!-- Sidebar user panel (optional) -->
       <div class="user-panel">
         <div class="pull-left image">
-          <img src="lte/dist/img/avatar5.png" class="img-circle" alt="User Image">
+          <img src="{{url('lte/dist/img/avatar5.png')}}" class="img-circle" alt="User Image">
         </div>
         <div class="pull-left info">
           <p>Usuario</p>

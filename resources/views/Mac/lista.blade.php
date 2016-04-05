@@ -1,11 +1,10 @@
 @extends('lte')
 
-
 @section('conteudo')
 	<!--a tabela paginada começa aqui-->
 <div class="box">
 	<div class="box-header">
-		<h3 class="box-title">Data Table With Full Features</h3>
+		<h3 class="box-title">MAC Address</h3>
 	</div>
 	<!-- /.box-header -->
 	<div class="box-body">
@@ -34,7 +33,7 @@
 			</tbody>
 		</table>
 	</div>
-	</div>
+</div>
 	<!--Tabela paginada encerra aqui-->
 @stop
 

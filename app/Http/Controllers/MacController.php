@@ -12,15 +12,8 @@
 				->join('user', 'mac.id_user', '=', 'user.id_user')
 				->select('mac.mac', 'user.nome', 'mac.ticket', 'mac.ativo', 'dispositivo.descricao')
 				->get();
-			$MACT = Mac::count();
-			$USR = Usuarios::where('id_user','!=',0)->distinct()->count();
-			$AMAC = Mac::where('ativo',1)->count();
-			$IMAC = Mac::where('ativo',0)->count();
 			return view('Mac.lista')->with('MAC', $MAC)
-								->with('MACT', $MACT)
-								->with('USR', $USR)
-								->with('AMAC', $AMAC)
-								->with('IMAC', $IMAC);
+									->with('menu', $this->menu());
 			}
 
 		public function mostra(){
@@ -34,6 +27,14 @@
 		}
 
 		public function novo(){
-			return view('Mac.fomulario');
+			return view('Mac.formulario')->with('menu', $this->menu());
+						}
+		public function menu(){
+			$MACT = Mac::count();
+			$USR = Usuarios::where('id_user','!=',0)->distinct()->count();
+			$AMAC = Mac::where('ativo',1)->count();
+			$IMAC = Mac::where('ativo',0)->count();
+			$todos = array("MACT"=>$MACT,"USR"=>$USR,"AMAC"=>$AMAC,"IMAC"=>$IMAC);
+			return $todos;
 		}
 	}
