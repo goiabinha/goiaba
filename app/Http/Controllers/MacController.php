@@ -65,12 +65,26 @@
 		public function adiciona(MacRequest $request)
 		{
 			$mac = $request->mac;
+			$limpo = strtoupper(preg_replace('/[^A-Fa-f0-9\-]/', '', $mac));
+
 			$id_user = $request->id_user;
 			$ticket = $request->ticket;
 			$dispositivo = $request->id_dev;
 			$descricao = $request->nome_eq;
 			$ativo = $request->ativo;
-			return implode( ',', array($mac,$id_user,$ticket,$dispositivo,$descricao,$ativo));
+			if ($ativo == 'on')
+			{
+				$status = 1;
+			}
+			else
+			{
+				$status = 0;
+			}
+
+			/*return implode( ',', array($mac,$id_user,$ticket,$dispositivo,$descricao,$ativo));*/
+			DB::insert('insert into mac (mac,id_user,id_dev,ticket,nome_eq,ativo) VALUES (?,?,?,?,?,?)',array($mac,$id_user,$dispositivo,$ticket,$descricao,$status));
+			return view('Mac.concluido')
+				->with('menu', $this->menu());
 		}
 
 
