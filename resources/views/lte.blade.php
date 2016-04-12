@@ -155,17 +155,22 @@ desired effect
 
       <!-- Sidebar Menu -->
       <ul class="sidebar-menu">
-        <li class="header">HEADER</li>
-        <!-- Optionally, you can add icons to the links -->
-        <li class="active"><a href="#"><i class="fa fa-link"></i> <span>Link</span></a></li>
-        <li><a href="#"><i class="fa fa-link"></i> <span>Another Link</span></a></li>
+        <li class="header">MENU</li>
         <li class="treeview">
-          <a href="#"><i class="fa fa-link"></i> <span>Multilevel</span> <i class="fa fa-angle-left pull-right"></i></a>
+          <a href="#"><i class="fa fa-laptop"></i> <span>MAC Address</span> <i class="fa fa-angle-left pull-right"></i></a>
           <ul class="treeview-menu">
-            <li><a href="#">Link in level 2</a></li>
-            <li><a href="#">Link in level 2</a></li>
+            <li class="active"><a href="{{asset('/macs')}}"><i class="fa fa-search"></i> <span>Procurar</span></a></li>
+            <li><a href="{{asset('/macs/novo')}}"><i class="fa fa-plus-square"></i> <span>Cadastrar</span></a></li>
           </ul>
         </li>
+        <li class="treeview">
+          <a href="#"><i class="fa fa-user"></i> <span>Usu&aacute;rio</span> <i class="fa fa-angle-left pull-right"></i></a>
+          <ul class="treeview-menu">
+            <li class="active"><a href="{{asset('/usuarios')}}"><i class="fa fa-search"></i> <span>Procurar</span></a></li>
+            <li><a href="{{asset('/usuarios/novo')}}"><i class="fa fa-plus-square"></i> <span>Cadastrar</span></a></li>
+          </ul>
+        </li>
+        <li><a href="{{asset('/aplicar')}}"><i class="fa fa-gear"></i> <span>Cadastrar</span></a></li>
       </ul>
       <!-- /.sidebar-menu -->
     </section>

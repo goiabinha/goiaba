@@ -64,9 +64,7 @@
 
 		public function adiciona(MacRequest $request)
 		{
-			$mac = $request->mac;
-			$limpo = strtoupper(preg_replace('/[^A-Fa-f0-9\-]/', '', $mac));
-
+			$mac = strtoupper($request->mac);
 			$id_user = $request->id_user;
 			$ticket = $request->ticket;
 			$dispositivo = $request->id_dev;

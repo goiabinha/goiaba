@@ -18,7 +18,7 @@
                 <div class="box-body">
                     <div class="form-group">
                         <label for="exampleInputEmail1">MAC Address</label>
-                        <input type="text" class="form-control" id="mac" placeholder="MAC Address" name="mac">
+                        <input type="text" class="form-control" id="mac" placeholder="MAC Address" name="mac" data-inputmask="'alias': 'mac'" data-mask>
                     </div>
                     <div class="form-group">
                         <label for="exampleInputEmail1">Usu&aacute;rio</label>
@@ -86,6 +86,10 @@
     <!-- AdminLTE for demo purposes -->
     <script src="{{url('lte/dist/js/demo.js')}}"></script>
     <!-- page script -->
+    <!-- Mascara IP -->
+    <script src="{{url('lte/plugins/input-mask/jquery.inputmask.js')}}"></script>
+    <script src="{{url('lte/plugins/input-mask/jquery.inputmask.date.extensions.js')}}"></script>
+    <script src="{{url('lte/plugins/input-mask/jquery.inputmask.extensions.js')}}"></script>
     <script>
     $(function () {
             $('#tabela').DataTable();
@@ -101,6 +105,11 @@
                 $('#id_user').val(ui.item.id);
             }
         })
+    </script>
+
+    <script>
+        $("[data-mask]").inputmask();
+
     </script>
 
 @stop

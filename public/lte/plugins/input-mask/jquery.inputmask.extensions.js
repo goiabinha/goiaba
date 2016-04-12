@@ -117,6 +117,23 @@ Optional extensions on the jquery.inputmask base
                     definitionSymbol: "i"
                 }
             }
+        },
+        "mac": { //ip-address mask
+            mask: ["[x]y:[x]y:[x]y:x[y]:x[y]:x[y]", "[x]y:[x]y:[x]y:[x]y]:x[y]:x[y]"],
+            definitions: {
+            'x': {
+                validator: "[A-Fa-f0-9]",
+                cardinality: 1,
+                definitionSymbol: "i"
+                },
+            'y': {
+                validator: "[A-Fa-f0-9]",
+                cardinality: 1,
+                definitionSymbol: "i"
+                }
+            }
         }
+        //https://en.wikipedia.org/wiki/Vehicle_identification_number
+        // see issue #1199
     });
 })(jQuery);
