@@ -1,6 +1,7 @@
 <?php
 Route::get('/macs', 'MacController@lista');
 Route::get('/macs/adiciona', 'MacController@adiciona');
+Route::get('/macs/excluir/{id}', 'MacController@excluir');
 Route::get('/usuarios', 'UsuariosController@lista');
 Route::get('/macs/detalhe', 'MacController@mostra');
 Route::get('/macs/novo', 'MacController@novo');

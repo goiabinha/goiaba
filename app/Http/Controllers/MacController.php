@@ -15,7 +15,7 @@
 		{
 			$MAC = Mac::join('dispositivo', 'mac.id_dev', '=', 'dispositivo.id_dev')
 				->join('user', 'mac.id_user', '=', 'user.id_user')
-				->select('mac.id_mac', 'mac.mac', 'user.nome', 'mac.ticket', 'mac.ativo', 'dispositivo.descricao')
+				->select('mac.id', 'mac.mac', 'user.nome', 'mac.ticket', 'mac.ativo', 'dispositivo.descricao')
 				->get();
 			return view('Mac.lista')->with('MAC', $MAC)
 				->with('menu', $this->menu());
@@ -69,14 +69,11 @@
 				->with('menu', $this->menu());
 		}
 
-		public function deletar($id)
+		public function excluir($id)
 		{
-			Mac::destroy($request->all());
-			return view('Mac.excluido')
-				->with('menu', $this->menu());
+			$mac = Mac::find($id);
+			$mac->delete();
+			return redirect()
+				->action('MacController@lista');
 		}
-
-
-
-
 	}
