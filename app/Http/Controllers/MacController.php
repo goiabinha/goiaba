@@ -15,7 +15,7 @@
 		{
 			$MAC = Mac::join('dispositivo', 'mac.id_dev', '=', 'dispositivo.id_dev')
 				->join('user', 'mac.id_user', '=', 'user.id_user')
-				->select('mac.mac', 'user.nome', 'mac.ticket', 'mac.ativo', 'dispositivo.descricao')
+				->select('mac.id_mac', 'mac.mac', 'user.nome', 'mac.ticket', 'mac.ativo', 'dispositivo.descricao')
 				->get();
 			return view('Mac.lista')->with('MAC', $MAC)
 				->with('menu', $this->menu());
@@ -64,27 +64,19 @@
 
 		public function adiciona(MacRequest $request)
 		{
-			/*$mac = strtoupper($request->mac);*/
-			$mac = $request->mac;
-			$id_user = $request->id_user;
-			$ticket = $request->ticket;
-			$dispositivo = $request->id_dev;
-			$descricao = $request->nome_eq;
-			$ativo = $request->ativo;
-			/*if ($ativo == 'on')
-			{
-				$status = 1;
-			}
-			else
-			{
-				$status = 0;
-			}*/
-
-			/*return implode( ',', array($mac,$id_user,$ticket,$dispositivo,$descricao,$ativo));*/
-			DB::insert('insert into mac (mac,id_user,id_dev,ticket,nome_eq,ativo) VALUES (?,?,?,?,?,?)',array($mac,$id_user,$dispositivo,$ticket,$descricao,$ativo));
+	        Mac::create($request->all());
 			return view('Mac.concluido')
 				->with('menu', $this->menu());
 		}
+
+		public function deletar($id)
+		{
+			Mac::destroy($request->all());
+			return view('Mac.excluido')
+				->with('menu', $this->menu());
+		}
+
+
 
 
 	}
