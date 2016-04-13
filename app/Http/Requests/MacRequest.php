@@ -27,7 +27,7 @@ class MacRequest extends Request
 			'mac'=>'required',
 			'id_user'=>'required',
 			'id_dev'=>'required',
-			'ativo=>'required'
+			'ativo'=>'required'
         ];
     }
 }
