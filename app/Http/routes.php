@@ -7,3 +7,4 @@ Route::get('/macs/novo', 'MacController@novo');
 Route::get('/mact', 'MacController@menu');
 Route::get('/autocomplete',array( 'as'=>'autocomplete','uses'=>'MacController@autocomplete'));
 Route::get('/aplicar', 'ExecutarController@aplicar');
+Route::get('/discovery', 'DiscoveryController@lista');

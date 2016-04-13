@@ -156,6 +156,7 @@ desired effect
       <!-- Sidebar Menu -->
       <ul class="sidebar-menu">
         <li class="header">MENU</li>
+
         <li class="treeview">
           <a href="#"><i class="fa fa-laptop"></i> <span>MAC Address</span> <i class="fa fa-angle-left pull-right"></i></a>
           <ul class="treeview-menu">
@@ -170,7 +171,15 @@ desired effect
             <li><a href="{{asset('/usuarios/novo')}}"><i class="fa fa-plus-square"></i> <span>Cadastrar</span></a></li>
           </ul>
         </li>
-        <li><a href="{{asset('/aplicar')}}"><i class="fa fa-gear"></i> <span>Cadastrar</span></a></li>
+        <li class="treeview">
+          <a href="#"><i class="fa fa-user"></i> <span>Dispositivo</span> <i class="fa fa-angle-left pull-right"></i></a>
+          <ul class="treeview-menu">
+            <li class="active"><a href="{{asset('/usuarios')}}"><i class="fa fa-search"></i> <span>Procurar</span></a></li>
+            <li><a href="{{asset('/usuarios/novo')}}"><i class="fa fa-plus-square"></i> <span>Cadastrar</span></a></li>
+          </ul>
+        </li>
+        <li><a href="{{asset('/aplicar')}}"><i class="fa fa-gear"></i> <span>Aplicar</span></a></li>
+        <li><a href="{{asset('/discovery')}}"><i class="fa fa-binoculars"></i> <span>Descoberta de MAC</span></a></li>
       </ul>
       <!-- /.sidebar-menu -->
     </section>
