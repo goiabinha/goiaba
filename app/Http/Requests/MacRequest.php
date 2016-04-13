@@ -26,19 +26,8 @@ class MacRequest extends Request
         return [
             'mac' => 'required',
             'id_user' => 'required',
-            'ticket' => 'required'
-=======
-     *
-     * @return array
-     */
-    public function rules()
-    {
-      return [
-			'mac'=>'required',
-			'id_user'=>'required',
-			'id_dev'=>'required',
-			'ativo'=>'required'
->>>>>>> 6e7a0b03a2d0086501f4e0a7e459970929fc8be2
+            'ticket' => 'required',
+			'id_dev'=>'required'
         ];
     }
 }
