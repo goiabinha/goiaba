@@ -70,6 +70,23 @@
 			return view('Mac.concluido')
 				->with('menu', $this->menu());
 		}
+		public function altera(MacRequest $request)
+		{
+			$id = Request::input('id');
+			$input = $request;
+			Mac::find($id)->update($input);
+			return redirect("mac/detalhe/".$id."")
+				->with('menu', $this->menu());
+		}
+
+		public function edita(BovinoRequest $request)
+		{
+			$id = Request::input('id');
+			$input = $request->except('id','_token');
+			Bovino::find($id)->update($input);
+
+			return redirect("bovino/mostra/".$id."");
+		}
 
 		public function excluir($id)
 		{

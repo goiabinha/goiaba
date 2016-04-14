@@ -10,7 +10,7 @@
     <div class="box-body">
         <div class="box box-primary">
             <div class="box-header with-border">
-                <h3 class="box-title">Cadastro</h3>
+                <h3 class="box-title">Editar</h3>
             </div>
             <!-- /.box-header -->
             <!-- form start -->
@@ -56,7 +56,7 @@
                 <!-- /.box-body -->
 
                 <div class="box-footer">
-                    <button type="submit" class="btn btn-primary">ADD</button>
+                    <button type="submit" class="btn btn-primary">ATUALIZAR</button>
                 </div>
             </form>
         </div>
