@@ -103,6 +103,8 @@
 				->select('mac.id', 'mac.mac', 'user.nome', 'mac.id_user', 'mac.ticket', 'mac.ativo', 'mac.id_dev', 'dispositivo.descricao', 'mac.nome_eq' )
 				->get();
 
+
+
 			$dev = Dispositivo::all();
 			foreach( $MAC as $E ){
 				$EMAC=array ( "id"=>$E->id,
