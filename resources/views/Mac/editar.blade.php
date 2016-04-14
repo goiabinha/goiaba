@@ -18,14 +18,14 @@
                 <div class="box-body">
                     <div class="form-group">
                         <label for="exampleInputEmail1">MAC Address</label>
-                        <input type="text" class="form-control" id="mac" placeholder="MAC Address" name="mac" data-inputmask="'alias': 'mac'" data-mask value="{{$mac}}">
+                        <input type="text" class="form-control" id="mac" placeholder="MAC Address" name="mac" data-inputmask="'alias': 'mac'" data-mask value="{{$MAC->mac}}">
                     </div>
                     <div class="form-group">
                         <label for="exampleInputEmail1">Usu&aacute;rio</label>
                         <section >
                             <header >
-                        <td> <input type="text" name="searchname" class="form-control" id="searchname" placeholder="Nome do usu&aacute;rio"></td>
-                             <input type="hidden" name="id_user" class="form-control" id="id_user">
+                        <td> <input type="text" name="searchname" class="form-control" id="searchname" placeholder="Nome do usu&aacute;rio" value="{{$MAC->nome}}"></td>
+                             <input type="hidden" name="id_user" class="form-control" id="id_user" value="{{$MAC->id_user}}">
                             </header>
                         </section>
                     </div>
@@ -33,6 +33,7 @@
                     <div class="form-group">
                         <label>Dispositivo</label>
                         <select class="form-control" placeholder="Dispositivo" id="dispositivo" name="id_dev">
+                            <option value= {{$MAC->id_dev}} selected='selected'>{{$MAC->descricao}}</option>
                         @foreach ($dev as $d)
                             <option value= {{$d->id_dev}}>{{$d->descricao}}</option>
                         @endforeach
@@ -40,15 +41,15 @@
                     </div>
                     <div class="form-group">
                         <label for="exampleInputPassword1">Ticket</label>
-                        <input type="form-control" class="form-control" id="ticket" placeholder="Ticket OTRS" name="ticket">
+                        <input type="form-control" class="form-control" id="ticket" placeholder="Ticket OTRS" name="ticket" value="{{$MAC->ticket}}">
                     </div>
                     <div class="form-group">
                         <label for="exampleInputPassword1">Descricao</label>
-                        <input type="form-control" class="form-control" id="descricao" placeholder="Descricao" name="nome_eq">
+                        <input type="form-control" class="form-control" id="descricao" placeholder="Descricao" name="nome_eq" value="{{$MAC->descricao}}">
                     </div>
                     <div class="checkbox">
                         <label>
-                            <input type="checkbox" id="status" name="ativo"> Ativo
+                            <input type="checkbox" id="status" name="ativo" value="{{$MAC->ativo}}"> Ativo
                         </label>
                     </div>
                 </div>

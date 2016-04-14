@@ -15,7 +15,7 @@
 		{
 			$MAC = Mac::join('dispositivo', 'mac.id_dev', '=', 'dispositivo.id_dev')
 				->join('user', 'mac.id_user', '=', 'user.id_user')
-				->select('mac.id', 'mac.mac', 'user.nome', 'mac.ticket', 'mac.ativo', 'dispositivo.descricao')
+				->select('mac.id', 'mac.mac', 'user.nome', 'mac.id_user', 'mac.ticket', 'mac.ativo', 'mac.id_dev', 'dispositivo.descricao', 'mac.nome_eq' )
 				->get();
 			return view('Mac.lista')->with('MAC', $MAC)
 				->with('menu', $this->menu());
@@ -32,11 +32,13 @@
 			return view('Mac.detalhe')->with('SLMAC', $SMAC);
 		}
 
-		public function novo()
+		public function novo($mac='')
 		{
 			$dev = Dispositivo::all();
-			return view('Mac.formulario')->with('menu', $this->menu())
-				->with('dev', $dev);
+			return view('Mac.formulario')
+				->with('menu', $this->menu())
+				->with('dev', $dev)
+				->with('mac', $mac);
 		}
 
 		public function menu()
@@ -75,5 +77,18 @@
 			$mac->delete();
 			return redirect()
 				->action('MacController@lista');
+		}
+		public function editar($M)
+		{
+			$MAC = Mac::join('dispositivo', 'mac.id_dev', '=', 'dispositivo.id_dev')
+				->join('user', 'mac.id_user', '=', 'user.id_user')
+				->where('mac.id',$M)
+				->select('mac.id', 'mac.mac', 'user.nome', 'mac.id_user', 'mac.ticket', 'mac.ativo', 'mac.id_dev', 'dispositivo.descricao', 'mac.nome_eq' )
+				->get();
+			$dev = Dispositivo::all();
+			return view('Mac.editar')
+				->with('menu', $this->menu())
+				->with('dev', $dev)
+				->with('MAC', $MAC);
 		}
 	}

@@ -28,7 +28,7 @@
 					<td>{{$M->descricao}}</td>
 					<td>{{$M->ticket}}</td>
 				    <td><span class="label {{ $M->ativo ? ' label-success' : 'label-danger' }}"> @if ($M->ativo=='1') Ativo @else Inativo @endif</span></td>
-					<td><a href="{{ url('/macs/editar?id=') }}{{$M->id}} "><span  class=" label-blue fa fa-edit"></span></a></td>
+					<td><a href="{{ action('MacController@editar', $M->id )}} "><span  class=" label-blue fa fa-edit"></span></a></td>
 					<td><a href="{{ action('MacController@excluir',$M->id )}} "><span  class=" label-danger fa fa-remove"></span></a></td>
 				</tr>
 			@endforeach

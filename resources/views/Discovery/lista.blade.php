@@ -20,7 +20,7 @@
 				<tr>
 					<td>{{$M->mac}}</td>
 					<!--<td><a href="/macs/novo?mac={{$M->mac}}"><span class="fa fa-plus "></span></a></td> -->
-					<td><a href="{{ url('/macs/novo?mac=') }}{{$M->mac}} "><span class="fa fa-plus "></span></a></td>
+					<td><a href="{{ action('MacController@novo',$M->mac )}} "><span class="fa fa-plus "></span></a></td>
 
 				</tr>
 			@endforeach
