@@ -82,13 +82,29 @@
 		{
 			$MAC = Mac::join('dispositivo', 'mac.id_dev', '=', 'dispositivo.id_dev')
 				->join('user', 'mac.id_user', '=', 'user.id_user')
-				->where('mac.id',$M)
+				->where('id', $M)
 				->select('mac.id', 'mac.mac', 'user.nome', 'mac.id_user', 'mac.ticket', 'mac.ativo', 'mac.id_dev', 'dispositivo.descricao', 'mac.nome_eq' )
 				->get();
+
 			$dev = Dispositivo::all();
+			foreach( $MAC as $E ){
+				$EMAC=array ( "id"=>$E->id,
+					"mac"=>$E->mac,
+					"nome"=>$E->nome,
+					"id_user"=>$E->id_user,
+					"ticket"=>$E->ticket,
+					"ativo"=>$E->ativo,
+					"id_dev"=>$E->id_dev,
+					"descricao"=>$E->descricao,
+					"nome_eq"=>$E->nome_eq );
+			}
+
+			/*return response()->json($MAC);*/
+
 			return view('Mac.editar')
 				->with('menu', $this->menu())
 				->with('dev', $dev)
-				->with('MAC', $MAC);
+				->with('MAC', $MAC)
+			    ->with('EMAC', $EMAC);
 		}
 	}
