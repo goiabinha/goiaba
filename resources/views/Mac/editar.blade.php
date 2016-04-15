@@ -14,11 +14,12 @@
             </div>
             <!-- /.box-header -->
             <!-- form start -->
-            <form role="form" action="{{URL('macs/adiciona')}}">
+            <form role="form" action="{{URL('macs/altera')}}">
                 <div class="box-body">
                     <div class="form-group">
                         <label for="exampleInputEmail1">MAC Address</label>
                         <input type="text" class="form-control" id="mac" placeholder="MAC Address" name="mac" data-inputmask="'alias': 'mac'" data-mask value= {{ $EMAC["mac"] }} >
+                        <input type="hidden" name="id" class="form-control" id="id" value="{{ $EMAC["id"] }}">
                     </div>
                     <div class="form-group">
                         <label for="exampleInputEmail1">Usu&aacute;rio</label>

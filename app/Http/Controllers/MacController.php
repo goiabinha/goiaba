@@ -21,8 +21,30 @@
 				->with('menu', $this->menu());
 		}
 
-		public function mostra()
+		public function detalhe($id)
 		{
+			$detalhe = Mac::join('dispositivo', 'mac.id_dev', '=', 'dispositivo.id_dev')
+				->join('user', 'mac.id_user', '=', 'user.id_user')
+				->where('id', $id)
+				->select('mac.mac', 'user.nome', 'mac.ticket', 'mac.ativo', 'dispositivo.descricao', 'mac.nome_eq', 'mac.criado_em', 'mac.modificado_em' )
+				->get();
+
+			foreach( $detalhe as $D ){
+				$detalhes=array ( "mac"=>$D->mac,
+					"nome"=>$D->nome,
+					"ticket"=>$D->ticket,
+					"ativo"=>$D->ativo,
+					"descricao"=>$D->descricao,
+					"nome_eq"=>$D->nome_eq,
+					"modificado"=>$D->modificado_em,
+					"criado"=>$D->criado_em );
+			}
+			/*return response()->json($MAC);*/
+			return view('Mac.detalhe')
+				->with('menu', $this->menu())
+				->with('DTL', $detalhes);
+
+
 			$IDMac = 800;
 
 			$SMAC = Mac::where('id_mac', $IDMac)
@@ -79,15 +101,6 @@
 				->with('menu', $this->menu());
 		}
 
-		public function edita(BovinoRequest $request)
-		{
-			$id = Request::input('id');
-			$input = $request->except('id','_token');
-			Bovino::find($id)->update($input);
-
-			return redirect("bovino/mostra/".$id."");
-		}
-
 		public function excluir($id)
 		{
 			$mac = Mac::find($id);
@@ -102,8 +115,6 @@
 				->where('id', $M)
 				->select('mac.id', 'mac.mac', 'user.nome', 'mac.id_user', 'mac.ticket', 'mac.ativo', 'mac.id_dev', 'dispositivo.descricao', 'mac.nome_eq' )
 				->get();
-
-
 
 			$dev = Dispositivo::all();
 			foreach( $MAC as $E ){
