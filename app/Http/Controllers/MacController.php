@@ -11,6 +11,29 @@
 
 	class MacController extends Controller
 	{
+		public function menu()
+		{
+			$MACT = Mac::count();
+			$USR = Usuarios::where('id_user', '!=', 0)->distinct()->count();
+			$AMAC = Mac::where('ativo', 1)->count();
+			$IMAC = Mac::where('ativo', 0)->count();
+			$todos = array("MACT" => $MACT, "USR" => $USR, "AMAC" => $AMAC, "IMAC" => $IMAC);
+			return $todos;
+		}
+
+		public function autocomplete(Request $request)
+		{
+			$term=$request->term;
+			$data=Usuarios::where('nome','LIKE','%'.$term.'%')
+				->take(10)
+				->get();
+			$result=array();
+			foreach ($data as $key => $value) {
+				$result[]=['id'=>$value->id_user,'value'=>$value->nome];
+			}
+			return response()->json($result);
+		}
+
 		public function lista()
 		{
 			$MAC = Mac::join('dispositivo', 'mac.id_dev', '=', 'dispositivo.id_dev')
@@ -63,41 +86,10 @@
 				->with('mac', $mac);
 		}
 
-		public function menu()
-		{
-			$MACT = Mac::count();
-			$USR = Usuarios::where('id_user', '!=', 0)->distinct()->count();
-			$AMAC = Mac::where('ativo', 1)->count();
-			$IMAC = Mac::where('ativo', 0)->count();
-			$todos = array("MACT" => $MACT, "USR" => $USR, "AMAC" => $AMAC, "IMAC" => $IMAC);
-			return $todos;
-		}
-
-		public function autocomplete(Request $request)
-		{
-			$term=$request->term;
-			$data=Usuarios::where('nome','LIKE','%'.$term.'%')
-				->take(10)
-				->get();
-			$result=array();
-			foreach ($data as $key => $value) {
-				$result[]=['id'=>$value->id_user,'value'=>$value->nome];
-			}
-			return response()->json($result);
-		}
-
 		public function adiciona(MacRequest $request)
 		{
 	        Mac::create($request->all());
 			return view('Mac.concluido')
-				->with('menu', $this->menu());
-		}
-		public function altera(MacRequest $request)
-		{
-			$id = Request::input('id');
-			$input = $request;
-			Mac::find($id)->update($input);
-			return redirect("mac/detalhe/".$id."")
 				->with('menu', $this->menu());
 		}
 
@@ -108,6 +100,7 @@
 			return redirect()
 				->action('MacController@lista');
 		}
+
 		public function editar($M)
 		{
 			$MAC = Mac::join('dispositivo', 'mac.id_dev', '=', 'dispositivo.id_dev')
@@ -136,5 +129,15 @@
 				->with('dev', $dev)
 				->with('MAC', $MAC)
 			    ->with('EMAC', $EMAC);
+		}
+
+		public function altera(MacRequest $request)
+		{
+			$id = $request->id;
+			$input = $request->except('id','_token');
+			Mac::find($id)->update($input);
+
+			return redirect("macs/detalhe/".$id."")
+				->with('menu', $this->menu());
 		}
 	}
