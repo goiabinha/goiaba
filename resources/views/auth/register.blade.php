@@ -1,4 +1,4 @@
-@extends('app.blade.php')
+@extends('mold')
 
 @section('content')
 <div class="container-fluid">
@@ -63,3 +63,26 @@
 	</div>
 </div>
 @endsection
+@section('javascript')
+		<!-- jQuery 2.2.0 -->
+<script src="lte/plugins/jQuery/jQuery-2.2.0.min.js"></script>
+<!-- Bootstrap 3.3.5 -->
+<script src="lte/bootstrap/js/bootstrap.min.js"></script>
+<!-- DataTables -->
+<script src="lte/plugins/datatables/jquery.dataTables.min.js"></script>
+<script src="lte/plugins/datatables/dataTables.bootstrap.min.js"></script>
+<!-- SlimScroll -->
+<script src="lte/plugins/slimScroll/jquery.slimscroll.min.js"></script>
+<!-- FastClick -->
+<script src="lte/plugins/fastclick/fastclick.js"></script>
+<!-- AdminLTE App -->
+<script src="lte/dist/js/app.min.js"></script>
+<!-- AdminLTE for demo purposes -->
+<script src="lte/dist/js/demo.js"></script>
+<!-- page script -->
+<script>
+	$(function () {
+		$('#tabela').DataTable();
+	});
+</script>
+@stop
