@@ -220,7 +220,7 @@ desired effect
       Anything you want
     </div>
     <!-- Default to the left -->
-    <strong>Copyright &copy; 2015 <a href="#">Company</a>.</strong> All rights reserved.
+    <strong>Copyright &copy; 2016 <a href="https://github.com/goiabinha">Goiabinha</a>.</strong> All rights reserved.
   </footer>
 
   <!-- Control Sidebar -->
