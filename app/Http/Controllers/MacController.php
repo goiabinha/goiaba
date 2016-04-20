@@ -140,4 +140,21 @@
 			return redirect("macs/detalhe/".$id."")
 				->with('menu', $this->menu());
 		}
+		
+		/*
+		* Testar novo metodo altera
+		* Editar a rota
+		* Route::get('/macs/altera/{id}', 'MacController@altera');
+		* Editar o formulário
+		* <form role="form" action="{{URL('macs/altera/$EMAC["id"]')}}">
+		* Comentar a linha 22 do formulario
+		* <-- <input type="hidden" name="id" class="form-control" id="id" value="{{ $EMAC["id"] }}"> -->
+		
+		public function altera(MacRequest $request, $id)
+		{
+			Mac::->find($id)->update($request->all());
+
+			return redirect("macs/detalhe/".$id."")->with('menu', $this->menu());
+		}
+		*/
 	}
