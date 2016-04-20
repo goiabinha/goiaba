@@ -7,6 +7,7 @@ Route::group(['middleware' => ['web']], function () {
     Route::auth();
     Route::get('/home', 'HomeController@index');
     Route::get('/macs', 'MacController@lista');
+    Route::get('/', 'MacController@lista');
     Route::get('/macs/adiciona', 'MacController@adiciona');
     Route::get('/macs/altera', 'MacController@altera');
     Route::get('/macs/excluir/{id}', 'MacController@excluir');
