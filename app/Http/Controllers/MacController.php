@@ -152,7 +152,7 @@
 		
 		public function altera(MacRequest $request, $id)
 		{
-			Mac::->find($id)->update($request->all());
+			Mac::find($id)->update($request->all());
 
 			return redirect("macs/detalhe/".$id."")->with('menu', $this->menu());
 		}
