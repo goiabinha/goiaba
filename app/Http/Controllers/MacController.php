@@ -144,7 +144,7 @@
 		/*
 		* Testar novo metodo altera
 		* Editar a rota
-		* Route::get('/macs/altera/{id}', 'MacController@altera');
+		* Route::get('/macs/altera/{id}', 'MacController@altera')->where('id', '[0-9]+');
 		* Editar o formulário
 		* <form role="form" action="{{URL('macs/altera/$EMAC["id"]')}}">
 		* Comentar a linha 22 do formulario
