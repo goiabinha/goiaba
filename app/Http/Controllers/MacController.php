@@ -148,7 +148,7 @@
 		* Editar o formulário
 		* <form role="form" action="{{URL('macs/altera/$EMAC["id"]')}}">
 		* Comentar a linha 22 do formulario
-		* <-- <input type="hidden" name="id" class="form-control" id="id" value="{{ $EMAC["id"] }}"> -->
+		* <!-- <input type="hidden" name="id" class="form-control" id="id" value="{{ $EMAC["id"] }}"> -->
 		
 		public function altera(MacRequest $request, $id)
 		{
