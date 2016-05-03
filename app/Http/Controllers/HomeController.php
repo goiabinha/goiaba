@@ -11,8 +11,8 @@ class HomeController extends Controller {
     public function index()
     {
         $menu = new MacController();
-        return view('home')
-            ->with('menu', $menu->menu());
+        return redirect()
+            ->action('MacController@lista');
     }
 
 }

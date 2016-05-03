@@ -2,8 +2,11 @@
 
 namespace goiaba\Http\Controllers\Auth;
 
+use goiaba\Http\Requests;
 use goiaba\User;
 use Validator;
+use Request;
+use Auth;
 use goiaba\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
@@ -28,7 +31,7 @@ class AuthController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/';
+    protected $redirectTo = '/macs';
 
     /**
      * Create a new authentication controller instance.
@@ -69,4 +72,5 @@ class AuthController extends Controller
             'password' => bcrypt($data['password']),
         ]);
     }
+
 }

@@ -248,7 +248,7 @@ desired effect
       Anything you want
     </div>
     <!-- Default to the left -->
-    <strong>Copyright &copy; 2016 <a href="https://github.com/goiabinha">Goiabinha</a>.</strong> All rights reserved.
+    <strong>Copyright &copy; 2016 <a href="https://github.com/goiabinha">Goiabinha</a>.</strong> All rights reserved. SQN
   </footer>
 
   <!-- Control Sidebar -->
@@ -329,21 +329,28 @@ desired effect
 </body>
 <!-- ./wrapper -->
 
-
+<!-- Separa a primeira letra do nome-->
+<?php
+       $stg = Auth::user()->name;
+       $letra = str_split($stg);
+       $pletra=$letra[0];
+ ?>
 
 <script type="text/javascript">
   var c=document.getElementById("UgCanvas");
+  var l=document.getElementById("letra");
   var ctx=c.getContext("2d");
   ctx.fillStyle="#0000FF";
   ctx.beginPath();
   ctx.arc(13,13,13,0,Math.PI*2,true);
   ctx.closePath();
   ctx.fill();
+  ctx.strokeStyle = "#00BFFF";
   //texto
   ctx.strokeStyle = "#FFFFFF";
   ctx.fillStyle = "#FFFFFF";
   ctx.font = "bold 12pt sans-serif";
-  ctx.fillText("LA",7,18,12)
+  ctx.fillText("<?php print_r($pletra);?>",8,19,12);
 </script>
 
 @yield('javascript')
