@@ -5,9 +5,10 @@ Route::group(['middleware' => ['web']], function () {
         'password' => 'Auth\PasswordController',
     ]);
     Route::auth();
+    Route::get('auth/logout', 'Auth\AuthController@logout');
     Route::get('/home', 'HomeController@index');
     Route::get('/macs', 'MacController@lista');
-    Route::get('/', 'MacController@lista');
+    Route::get('/', 'HomeController@index');
     Route::get('/macs/adiciona', 'MacController@adiciona');
     Route::get('/macs/altera', 'MacController@altera');
     Route::get('/macs/excluir/{id}', 'MacController@excluir');

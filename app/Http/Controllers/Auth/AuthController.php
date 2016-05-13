@@ -40,9 +40,19 @@ class AuthController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('guest', ['except' => 'logout']);
+        /**$this->middleware('guest', ['except' => 'logout']);*/
+        $this->middleware('guest', ['except' => ['logout', 'getLogout']]);
     }
 
+    public function cor() {
+        $letters = '0123456789ABCDEF';
+        $color = '#';
+        for($i = 0; $i < 6; $i++) {
+            $index = rand(0,15);
+            $color .= $letters[$index];
+        }
+        return $color;
+    }
     /**
      * Get a validator for an incoming registration request.
      *
@@ -70,6 +80,7 @@ class AuthController extends Controller
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
+            'cor' => $this->cor()
         ]);
     }
 

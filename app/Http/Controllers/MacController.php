@@ -11,6 +11,12 @@
 
 	class MacController extends Controller
 	{
+
+		public function __contruct()
+		{
+			$this->middleware('auth');
+		}
+
 		public function menu()
 		{
 			$MACT = Mac::count();
