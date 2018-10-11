@@ -1,18 +1,21 @@
-<?php namespace goiaba\Http\Controllers;
-	use Illuminate\Foundation\Auth\User;
-	use Illuminate\Support\Facades\DB;
-	use goiaba\Mac;
-	use goiaba\Usuarios;
-	use goiaba\Dispositivo;
-	use Illuminate\HTTP\Request;
-	use App\Http\Requests;
-	use goiaba\Http\Requests\MacRequest;
-	use input;
+<?php
+
+namespace goiaba\Http\Controllers;
+
+use Illuminate\Foundation\Auth\User;
+use Illuminate\Support\Facades\DB;
+use goiaba\Mac;
+use goiaba\Usuarios;
+use goiaba\Dispositivo;
+use Illuminate\HTTP\Request;
+use App\Http\Requests;
+use goiaba\Http\Requests\MacRequest;
+use input;
 
 	class MacController extends Controller
 	{
 
-		public function __contruct()
+		public function __construct()
 		{
 			$this->middleware('auth');
 		}
