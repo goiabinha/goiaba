@@ -12,6 +12,7 @@ class UsuariosController extends Controller
     public function __construct(MacController $mac)
     {
         $this->menu = $mac->menu();
+        $this->middleware('auth');
     }
 
     /**
