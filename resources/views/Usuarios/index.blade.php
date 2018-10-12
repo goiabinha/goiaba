@@ -14,15 +14,20 @@
 			<tr role="row">
 				<th>Matricula</th>
 				<th>Nome</th>
-				<th>Lotacao</th>
+				<th>Lotação</th>
+				<th>Ações</th>
 			</tr>
 			</thead>
 			<tbody>
-			@foreach ($usuarios as $U)
+			@foreach ($usuarios as $usuario)
 				<tr>
-					<td>{{$U->id_user}}</td>
-					<td>{{$U->nome}}</td>
-					<td>{{$U->lotacao}}</td>
+					<td>{{ $usuario->id }}</td>
+					<td>{{ $usuario->nome }}</td>
+					<td>{{ $usuario->lotacao }}</td>
+					<td>
+                        <a href="{{ route('usuarios.edit', $usuario->id) }}" title="Editar"><i class="fa fa-pencil-square-o"></i></a>
+                        <a href="{{ route('usuarios.confirm', $usuario->id) }}" class="load-ajax-modal" data-toggle="modal" data-target="#modal_dialog" title="Apagar"><i class="fa fa-trash-o"></i></a>
+					</td>
 				</tr>
 			@endforeach
 			</tbody>
@@ -30,6 +35,13 @@
 	</div>
 	</div>
 	<!--Tabela paginada encerra aqui-->
+    <!-- Body Bottom modal DEFAULT dialog-->
+    <div class="modal fade" id="modal_dialog" tabindex="-1" role="dialog" aria-labelledby="modal_dialog_title" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+            </div>
+        </div>
+    </div>
 @stop
 
 @section('javascript')

@@ -20,7 +20,7 @@ class SearchController extends Controller
             ->get();
         $result=array();
         foreach ($data as $key => $value) {
-            $result[]=['id'=>$value->id_user,'value'=>$value->nome];
+            $result[]=['id'=>$value->id,'value'=>$value->nome];
         }
         return response()->json($result);
     }

@@ -23,7 +23,7 @@ use input;
 		public function menu()
 		{
 			$MACT = Mac::count();
-			$USR = Usuarios::where('id_user', '!=', 0)->distinct()->count();
+			$USR = Usuarios::where('id', '!=', 0)->distinct()->count();
 			$AMAC = Mac::where('ativo', 1)->count();
 			$IMAC = Mac::where('ativo', 0)->count();
 			$todos = array("MACT" => $MACT, "USR" => $USR, "AMAC" => $AMAC, "IMAC" => $IMAC);
@@ -38,7 +38,7 @@ use input;
 				->get();
 			$result=array();
 			foreach ($data as $key => $value) {
-				$result[]=['id'=>$value->id_user,'value'=>$value->nome];
+				$result[]=['id'=>$value->id,'value'=>$value->nome];
 			}
 			return response()->json($result);
 		}
@@ -46,7 +46,7 @@ use input;
 		public function lista()
 		{
 			$MAC = Mac::join('dispositivo', 'mac.id_dev', '=', 'dispositivo.id_dev')
-				->join('user', 'mac.id_user', '=', 'user.id_user')
+				->join('user', 'mac.id_user', '=', 'user.id')
 				->select('mac.id', 'mac.mac', 'user.nome', 'mac.id_user', 'mac.ticket', 'mac.ativo', 'mac.id_dev', 'dispositivo.descricao', 'mac.nome_eq' )
 				->get();
 			return view('Mac.lista')->with('MAC', $MAC)
@@ -56,7 +56,7 @@ use input;
 		public function detalhe($id)
 		{
 			$detalhe = Mac::join('dispositivo', 'mac.id_dev', '=', 'dispositivo.id_dev')
-				->join('user', 'mac.id_user', '=', 'user.id_user')
+				->join('user', 'mac.id_user', '=', 'user.id')
 				->where('id', $id)
 				->select('mac.mac', 'user.nome', 'mac.ticket', 'mac.ativo', 'dispositivo.descricao', 'mac.nome_eq', 'mac.criado_em', 'mac.modificado_em' )
 				->get();
@@ -113,7 +113,7 @@ use input;
 		public function editar($M)
 		{
 			$MAC = Mac::join('dispositivo', 'mac.id_dev', '=', 'dispositivo.id_dev')
-				->join('user', 'mac.id_user', '=', 'user.id_user')
+				->join('user', 'mac.id_user', '=', 'user.id')
 				->where('id', $M)
 				->select('mac.id', 'mac.mac', 'user.nome', 'mac.id_user', 'mac.ticket', 'mac.ativo', 'mac.id_dev', 'dispositivo.descricao', 'mac.nome_eq' )
 				->get();

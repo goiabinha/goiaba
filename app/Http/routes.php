@@ -16,7 +16,15 @@ Route::group(['middleware' => ['web']], function () {
     Route::get('/macs/novo', 'MacController@novo');
     Route::get('/macs/novo/{mac}', 'MacController@novo');
     Route::get('/macs/editar/{M}', 'MacController@editar');
-    Route::get('/usuarios', 'UsuariosController@lista');
+    // Usuarios
+    Route::get('/usuarios', 'UsuariosController@index')->name('usuarios.index');
+    Route::get('/usuarios/novo', 'UsuariosController@create')->name('usuarios.create');
+    Route::post('/usuarios', 'UsuariosController@store')->name('usuarios.store');
+    Route::get('/usuarios/{id}/edit', 'UsuariosController@edit')->name('usuarios.edit');
+    Route::get('/usuarios/{id}/confirm', 'UsuariosController@confirm')->name('usuarios.confirm');
+    Route::put('/usuarios/{id}', 'UsuariosController@update')->name('usuarios.update');
+    Route::delete('/usuarios/{id}', 'UsuariosController@destroy')->name('usuarios.destroy');
+    //
     Route::get('/macs/detalhe', 'MacController@mostra');
     Route::get('/mact', 'MacController@menu');
     Route::get('/autocomplete', array('as' => 'autocomplete', 'uses' => 'MacController@autocomplete'));
