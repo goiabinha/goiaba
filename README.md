@@ -1,8 +1,3 @@
 [![License: GNU GPL](http://dicassobresaude.com/wp-content/uploads/2015/05/10-beneficios-da-goiaba-para-a-nossa-saude-2.jpg)](http://www.gnu.org/licenses/gpl-3.0.en.html)
 # Goiaba
   Sistema de cadastro de MAC Address para restrição de acesso ao Virtua.
-
-
-# Issue
-
-- Problema na autenticação: Cria usuário e entra na sessão, porem no próximo login não reconhece o usuário;
