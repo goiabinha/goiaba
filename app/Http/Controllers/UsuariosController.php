@@ -2,7 +2,7 @@
 
 namespace goiaba\Http\Controllers;
 
-use Illuminate\Http\Request;
+use goiaba\Http\Requests\UsuariosRequest as Request;
 use goiaba\Usuarios;
 
 class UsuariosController extends Controller

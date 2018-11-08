@@ -21,7 +21,7 @@
 			<tbody>
 			@foreach ($usuarios as $usuario)
 				<tr>
-					<td>{{ $usuario->id }}</td>
+					<td>{{ $usuario->matricula }}</td>
 					<td>{{ $usuario->nome }}</td>
 					<td>{{ $usuario->lotacao }}</td>
 					<td>

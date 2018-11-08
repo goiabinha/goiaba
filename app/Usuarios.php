@@ -10,6 +10,7 @@ class Usuarios extends Model
     public $timestamps = false;
 
     protected $fillable = [
+        'matricula',
         'nome',
         'lotacao',
     ];

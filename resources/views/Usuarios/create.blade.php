@@ -4,6 +4,16 @@
     <div class="row">
         <div class='col-md-12'>
             <div class="box box-primary">
+                @if (count($errors) > 0)
+                    <div class="alert alert-danger">
+                        <strong>Whoops!</strong> There were some problems with your input.<br><br>
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
                 <form role="form" action="{{ route('usuarios.store') }}" method="post">
                     <div class="box-header with-border">
                         <h3 class="box-title">Usuário</h3>
@@ -16,6 +26,10 @@
                             <div class="form-group">
                                 <label for="nome">Nome</label>
                                 <input type="text" class="form-control" name="nome" value="" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="matricula">Matrícula</label>
+                                <input type="text" class="form-control" name="matricula" value="" required>
                             </div>
                         </div>
                         <div class="col-md-6">
