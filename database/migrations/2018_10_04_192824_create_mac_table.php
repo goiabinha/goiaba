@@ -18,10 +18,12 @@ class CreateMacTable extends Migration
             $table->integer('id_user');
             $table->integer('id_dev');
             $table->string('ticket', 15);
+            $table->string('sei', 20);
             $table->string('nome_eq', 15);
             $table->boolean('ativo');
             $table->timestamp('criado_em');
             $table->timestamp('modificado_em');
+	    $table->datetime('expira')->default('2099-01-01 01:01:01');
         });
     }
 
