@@ -182,10 +182,10 @@ desired effect
           </ul>
         </li>
         <li class="treeview">
-          <a href="#"><i class="fa fa-user"></i> <span>Dispositivo</span> <i class="fa fa-angle-left pull-right"></i></a>
+          <a href="#"><i class="fa fa-user"></i> <span>Dispositivos</span> <i class="fa fa-angle-left pull-right"></i></a>
           <ul class="treeview-menu">
-            <li class="active"><a href="{{asset('/usuarios')}}"><i class="fa fa-search"></i> <span>Procurar</span></a></li>
-            <li><a href="{{asset('/usuarios/novo')}}"><i class="fa fa-plus-square"></i> <span>Cadastrar</span></a></li>
+            <li class="active"><a href="{{asset('/dispositivos')}}"><i class="fa fa-search"></i> <span>Procurar</span></a></li>
+            <li><a href="{{asset('/dispositivos/novo')}}"><i class="fa fa-plus-square"></i> <span>Cadastrar</span></a></li>
           </ul>
         </li>
         <li><a href="{{asset('/aplicar')}}"><i class="fa fa-gear"></i> <span>Aplicar</span></a></li>

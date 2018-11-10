@@ -45,7 +45,7 @@ use input;
 
 		public function lista()
 		{
-			$MAC = Mac::join('dispositivo', 'mac.id_dev', '=', 'dispositivo.id_dev')
+			$MAC = Mac::join('dispositivo', 'mac.id_dev', '=', 'dispositivo.id')
 				->join('user', 'mac.id_user', '=', 'user.id')
 				->select('mac.id', 'mac.mac', 'user.nome', 'mac.id_user', 'mac.ticket', 'mac.ativo', 'mac.id_dev', 'dispositivo.descricao', 'mac.nome_eq' )
 				->get();
@@ -55,7 +55,7 @@ use input;
 
 		public function detalhe($id)
 		{
-			$detalhe = Mac::join('dispositivo', 'mac.id_dev', '=', 'dispositivo.id_dev')
+			$detalhe = Mac::join('dispositivo', 'mac.id_dev', '=', 'dispositivo.id')
 				->join('user', 'mac.id_user', '=', 'user.id')
 				->where('id', $id)
 				->select('mac.mac', 'user.nome', 'mac.ticket', 'mac.ativo', 'dispositivo.descricao', 'mac.nome_eq', 'mac.criado_em', 'mac.modificado_em' )
@@ -112,7 +112,7 @@ use input;
 
 		public function editar($M)
 		{
-			$MAC = Mac::join('dispositivo', 'mac.id_dev', '=', 'dispositivo.id_dev')
+			$MAC = Mac::join('dispositivo', 'mac.id_dev', '=', 'dispositivo.id')
 				->join('user', 'mac.id_user', '=', 'user.id')
 				->where('id', $M)
 				->select('mac.id', 'mac.mac', 'user.nome', 'mac.id_user', 'mac.ticket', 'mac.ativo', 'mac.id_dev', 'dispositivo.descricao', 'mac.nome_eq' )

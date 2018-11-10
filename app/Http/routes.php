@@ -24,6 +24,14 @@ Route::group(['middleware' => ['web']], function () {
     Route::get('/usuarios/{id}/confirm', 'UsuariosController@confirm')->name('usuarios.confirm');
     Route::put('/usuarios/{id}', 'UsuariosController@update')->name('usuarios.update');
     Route::delete('/usuarios/{id}', 'UsuariosController@destroy')->name('usuarios.destroy');
+    // Dispositivos
+    Route::get('/dispositivos', 'DispositivosController@index')->name('dispositivos.index');
+    Route::get('/dispositivos/novo', 'DispositivosController@create')->name('dispositivos.create');
+    Route::post('/dispositivos', 'DispositivosController@store')->name('dispositivos.store');
+    Route::get('/dispositivos/{id}/edit', 'DispositivosController@edit')->name('dispositivos.edit');
+    Route::get('/dispositivos/{id}/confirm', 'DispositivosController@confirm')->name('dispositivos.confirm');
+    Route::put('/dispositivos/{id}', 'DispositivosController@update')->name('dispositivos.update');
+    Route::delete('/dispositivos/{id}', 'DispositivosController@destroy')->name('dispositivos.destroy');
     //
     Route::get('/macs/detalhe', 'MacController@mostra');
     Route::get('/mact', 'MacController@menu');

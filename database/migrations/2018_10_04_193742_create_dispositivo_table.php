@@ -13,7 +13,7 @@ class CreateDispositivoTable extends Migration
     public function up()
     {
         Schema::create('dispositivo', function (Blueprint $table) {
-            $table->increments('id_dev');
+            $table->increments('id');
             $table->string('descricao', 20);
         });
     }
