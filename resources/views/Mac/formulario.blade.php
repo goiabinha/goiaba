@@ -14,7 +14,7 @@
             </div>
             <!-- /.box-header -->
             <!-- form start -->
-            <form role="form" action="{{URL('macs/adiciona')}}">
+            <form role="form" method="post" action="{{URL('macs/adiciona')}}">
                 <div class="box-body">
                     <div class="form-group">
                         <label for="exampleInputEmail1">MAC Address</label>

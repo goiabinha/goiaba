@@ -52,7 +52,7 @@
 
             <hr>
 
-            <strong><i class="fa fa-calendar-o margin-r-5"></i> &Uacute;ltima alteera&ccedil;&atilde;o</strong>
+            <strong><i class="fa fa-calendar-o margin-r-5"></i> &Uacute;ltima altera&ccedil;&atilde;o</strong>
 
             <p class="text-muted">
                 {{ $DTL["modificado"] }}

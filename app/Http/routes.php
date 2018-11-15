@@ -7,15 +7,24 @@ Route::group(['middleware' => ['web']], function () {
     Route::auth();
     Route::get('auth/logout', 'Auth\AuthController@logout');
     Route::get('/home', 'HomeController@index');
-    Route::get('/macs', 'MacController@lista');
     Route::get('/', 'HomeController@index');
-    Route::get('/macs/adiciona', 'MacController@adiciona');
-    Route::get('/macs/altera', 'MacController@altera');
-    Route::get('/macs/excluir/{id}', 'MacController@excluir');
-    Route::get('/macs/detalhe/{id}', 'MacController@detalhe');
-    Route::get('/macs/novo', 'MacController@novo');
-    Route::get('/macs/novo/{mac}', 'MacController@novo');
-    Route::get('/macs/editar/{M}', 'MacController@editar');
+    // MACs
+    Route::get('/macs', 'MacController@index')->name('macs.index');
+    Route::get('/macs/novo', 'MacController@create')->name('macs.create');
+    Route::post('/macs', 'MacController@store')->name('macs.store');
+    Route::get('/macs/{id}', 'MacController@show')->name('macs.show');
+    Route::get('/macs/{id}/edit', 'MacController@edit')->name('macs.edit');
+    Route::get('/macs/{id}/confirm', 'MacController@confirm')->name('macs.confirm');
+    Route::put('/macs/{id}', 'MacController@update')->name('macs.update');
+    Route::delete('/macs/{id}', 'MacController@destroy')->name('macs.destroy');
+    #Route::get('/macs/adiciona', 'MacController@adiciona');
+    #Route::get('/macs/altera', 'MacController@altera');
+    #Route::get('/macs/excluir/{id}', 'MacController@excluir');
+    #Route::get('/macs/detalhe/{id}', 'MacController@detalhe');
+    #Route::get('/macs/detalhe', 'MacController@mostra');
+    #Route::get('/macs/novo', 'MacController@novo');
+    #Route::get('/macs/novo/{mac}', 'MacController@novo');
+    #Route::get('/macs/editar/{M}', 'MacController@editar');
     // Usuarios
     Route::get('/usuarios', 'UsuariosController@index')->name('usuarios.index');
     Route::get('/usuarios/novo', 'UsuariosController@create')->name('usuarios.create');
@@ -33,7 +42,6 @@ Route::group(['middleware' => ['web']], function () {
     Route::put('/dispositivos/{id}', 'DispositivosController@update')->name('dispositivos.update');
     Route::delete('/dispositivos/{id}', 'DispositivosController@destroy')->name('dispositivos.destroy');
     //
-    Route::get('/macs/detalhe', 'MacController@mostra');
     Route::get('/mact', 'MacController@menu');
     Route::get('/autocomplete', array('as' => 'autocomplete', 'uses' => 'MacController@autocomplete'));
     Route::get('/aplicar', 'ExecutarController@aplicar');

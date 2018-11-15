@@ -2,7 +2,6 @@
 
 namespace goiaba\Http\Requests;
 
-use goiaba\Http\Requests\Request;
 
 class MacRequest extends Request
 {
@@ -18,16 +17,17 @@ class MacRequest extends Request
 
     /**
      * Get the validation rules that apply to the request.
-<<<<<<< HEAD
+     *
      */
 
     public function rules()
     {
         return [
-            'mac' => 'required',
+            'mac' => 'required|unique:mac,mac,'.$this->id,
             'id_user' => 'required',
             'ticket' => 'required',
-			'id_dev'=>'required'
+            'sei' => 'required',
+			'id_dev'=>'required',
         ];
     }
 }

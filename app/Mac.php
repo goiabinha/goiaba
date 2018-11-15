@@ -6,26 +6,45 @@ use Illuminate\Database\Eloquent\Model;
 
 class Mac extends Model
 {
-	public $timestamps = false;
+	/** Nome da tabela  */
     protected $table = 'mac';
-    protected $fillable = array('id_mac','mac','id_user','id_dev','ticket','nome_eq','ativo');
+    /** Campos com atribuição em massa  */
+    protected $fillable = ['mac','id_user','id_dev','ticket','sei','nome_eq','ativo','expira'];
+    /** Convertendo atributos em tipo especifico */
+    protected $casts = [
+        'mac' => 'string',
+        'expira' => 'datetime',
+        'id_user' => 'integer',
+        'id_dev' => 'integer',
+        'ticket' => 'string',
+        'sei' => 'string',
+        'nome_eq' => 'string',
+        'ativo' => 'boolean',
+    ];
     
     /** Converte o campo mac em letra maiuscula */
     public function setMacAttribute($value)
 	{       
 		$this->attributes['mac'] = strtoupper($value);
 	}
-	
-     /** Converte o campo ativo para 0 ou 1 */
-     public function setAtivoAttribute($value)
-     	{
-     		if ($value == 'on')
-		{
-			$this->attributes['ativo'] = 1;
-		}
-		else
-		{
-			$this->attributes['ativo'] = 0;
-		}
-     	}		
+
+    /**
+     * Relacionamento com Usuários
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+     public function usuarios()
+     {
+         return $this->belongsTo(Usuarios::class, 'id_user');
+     }
+
+    /**
+     * Relacionamento com Dispositivo
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function dispositivo()
+     {
+         return $this->belongsTo(Dispositivo::class, 'id_dev');
+     }
 }
