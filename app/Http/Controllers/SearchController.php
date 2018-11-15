@@ -1,4 +1,7 @@
-<?php namespace goiaba\Http\Controllers;
+<?php
+
+namespace goiaba\Http\Controllers;
+
 use Illuminate\Foundation\Auth\User;
 use Illuminate\HTTP\Request;
 use App\Http\Requests;

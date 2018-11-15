@@ -17,14 +17,6 @@ Route::group(['middleware' => ['web']], function () {
     Route::get('/macs/{id}/confirm', 'MacController@confirm')->name('macs.confirm');
     Route::put('/macs/{id}', 'MacController@update')->name('macs.update');
     Route::delete('/macs/{id}', 'MacController@destroy')->name('macs.destroy');
-    #Route::get('/macs/adiciona', 'MacController@adiciona');
-    #Route::get('/macs/altera', 'MacController@altera');
-    #Route::get('/macs/excluir/{id}', 'MacController@excluir');
-    #Route::get('/macs/detalhe/{id}', 'MacController@detalhe');
-    #Route::get('/macs/detalhe', 'MacController@mostra');
-    #Route::get('/macs/novo', 'MacController@novo');
-    #Route::get('/macs/novo/{mac}', 'MacController@novo');
-    #Route::get('/macs/editar/{M}', 'MacController@editar');
     // Usuarios
     Route::get('/usuarios', 'UsuariosController@index')->name('usuarios.index');
     Route::get('/usuarios/novo', 'UsuariosController@create')->name('usuarios.create');

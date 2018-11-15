@@ -1,4 +1,6 @@
-<?php namespace goiaba\Http\Controllers;
+<?php
+
+namespace goiaba\Http\Controllers;
 
 use goiaba\Usuarios;
 use goiaba\Mac;

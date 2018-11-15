@@ -1,4 +1,7 @@
-<?php namespace App\Http\Controllers\Frontend\Pages;
+<?php
+
+namespace App\Http\Controllers\Frontend\Pages;
+
 use App\Http\Requests;
 use goiaba\Usuarios;
 use Illuminate\Support\Facades\DB;

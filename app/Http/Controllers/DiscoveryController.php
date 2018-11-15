@@ -1,7 +1,7 @@
-<?php namespace goiaba\Http\Controllers;
-use Illuminate\Foundation\Auth\User;
-use Illuminate\Support\Facades\DB;
-use goiaba\Http\Controllers\MacController;
+<?php
+
+namespace goiaba\Http\Controllers;
+
 use goiaba\Discovery;
 
 class DiscoveryController extends Controller
