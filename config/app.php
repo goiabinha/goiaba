@@ -154,6 +154,7 @@ return [
         goiaba\Providers\AuthServiceProvider::class,
         goiaba\Providers\EventServiceProvider::class,
         goiaba\Providers\RouteServiceProvider::class,
+        JeroenNoten\LaravelAdminLte\ServiceProvider::class,
 
 	Bestmomo\Scafold\ScafoldServiceProvider::class,
 
