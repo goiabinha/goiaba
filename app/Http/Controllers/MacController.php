@@ -43,7 +43,7 @@ class MacController extends Controller
 		$macs = Mac::all();
 		$menu = $this->menu();
 
-		return view('Mac.index', compact('macs','menu'));
+		return view('goiaba.mac.index', compact('macs','menu'));
 	}
 
     public function create()

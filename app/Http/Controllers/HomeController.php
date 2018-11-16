@@ -14,9 +14,7 @@ class HomeController extends Controller
 
     public function index()
     {
-        $menu = new MacController();
-        return redirect()
-            ->action('MacController@index');
+        return view('goiaba.home.index');
     }
 
 }

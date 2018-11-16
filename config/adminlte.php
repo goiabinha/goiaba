@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'title' => 'AdminLTE 2',
+    'title' => 'Goiaba',
 
     'title_prefix' => '',
 
@@ -30,9 +30,9 @@ return [
     |
     */
 
-    'logo' => '<b>Admin</b>LTE',
+    'logo' => '<b>Goiaba</b>WiFi',
 
-    'logo_mini' => '<b>A</b>LT',
+    'logo_mini' => '<b>G</b>WF',
 
     /*
     |--------------------------------------------------------------------------
@@ -108,80 +108,64 @@ return [
     */
 
     'menu' => [
-        'MAIN NAVIGATION',
+        'MENU',
         [
-            'text' => 'Blog',
-            'url'  => 'admin/blog',
-            'can'  => 'manage-blog',
-        ],
-        [
-            'text'        => 'Pages',
-            'url'         => 'admin/pages',
-            'icon'        => 'file',
-            'label'       => 4,
-            'label_color' => 'success',
-        ],
-        'ACCOUNT SETTINGS',
-        [
-            'text' => 'Profile',
-            'url'  => 'admin/settings',
-            'icon' => 'user',
-        ],
-        [
-            'text' => 'Change Password',
-            'url'  => 'admin/settings',
-            'icon' => 'lock',
-        ],
-        [
-            'text'    => 'Multilevel',
-            'icon'    => 'share',
+            'text'    => 'MAC Address',
+            'icon'    => 'laptop',
             'submenu' => [
                 [
-                    'text' => 'Level One',
-                    'url'  => '#',
+                    'text' => 'Procurar',
+                    'icon' => 'search',
+                    'url'  => 'macs',
                 ],
                 [
-                    'text'    => 'Level One',
-                    'url'     => '#',
-                    'submenu' => [
-                        [
-                            'text' => 'Level Two',
-                            'url'  => '#',
-                        ],
-                        [
-                            'text'    => 'Level Two',
-                            'url'     => '#',
-                            'submenu' => [
-                                [
-                                    'text' => 'Level Three',
-                                    'url'  => '#',
-                                ],
-                                [
-                                    'text' => 'Level Three',
-                                    'url'  => '#',
-                                ],
-                            ],
-                        ],
-                    ],
-                ],
-                [
-                    'text' => 'Level One',
-                    'url'  => '#',
+                    'text' => 'Cadastar',
+                    'icon' => 'plus-square',
+                    'url'  => 'macs/novo',
                 ],
             ],
         ],
-        'LABELS',
         [
-            'text'       => 'Important',
-            'icon_color' => 'red',
+            'text'    => 'Usuários',
+            'icon'    => 'user',
+            'submenu' => [
+                [
+                    'text' => 'Procurar',
+                    'icon' => 'search',
+                    'url'  => 'usuarios',
+                ],
+                [
+                    'text' => 'Cadastar',
+                    'icon' => 'plus-square',
+                    'url'  => 'usuarios/novo',
+                ],
+            ],
         ],
         [
-            'text'       => 'Warning',
-            'icon_color' => 'yellow',
+            'text'    => 'Dispositivos',
+            'icon'    => 'desktop',
+            'submenu' => [
+                [
+                    'text' => 'Procurar',
+                    'icon' => 'search',
+                    'url'  => 'dispositivos',
+                ],
+                [
+                    'text' => 'Cadastar',
+                    'icon' => 'plus-square',
+                    'url'  => 'dispositivos/novo',
+                ],
+            ],
         ],
         [
-            'text'       => 'Information',
-            'icon_color' => 'aqua',
+            'text'  =>  'Aplicar',
+            'icon'  =>  'play',
+            'url'   =>  'aplicar',
+        ],
+        [
+            'text'  =>  'Descoberta de MAC',
+            'icon'  =>  'binoculars',
+            'url'   =>  'discovery',
         ],
     ],
 
