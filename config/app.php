@@ -154,6 +154,7 @@ return [
         goiaba\Providers\AuthServiceProvider::class,
         goiaba\Providers\EventServiceProvider::class,
         goiaba\Providers\RouteServiceProvider::class,
+        Laracasts\Flash\FlashServiceProvider::class,
 
 	Bestmomo\Scafold\ScafoldServiceProvider::class,
 

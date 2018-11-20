@@ -4,6 +4,7 @@ namespace goiaba\Http\Controllers;
 
 use goiaba\Http\Requests\UsuariosRequest as Request;
 use goiaba\Usuarios;
+use Illuminate\Database\QueryException;
 
 class UsuariosController extends Controller
 {
@@ -104,9 +105,14 @@ class UsuariosController extends Controller
     public function destroy($id)
     {
         $usuario = Usuarios::findOrFail($id);
-        $usuario->delete();
-
-        return redirect()->route('usuarios.index');
+        try {
+            $usuario->delete();
+            flash("Usuário $usuario->nome excluído com sucesso!")->success();
+            return redirect()->route('usuarios.index');
+        } catch (QueryException $e) {
+            flash($e->getMessage())->error();
+            return redirect()->route('usuarios.index');
+        }
     }
 
     /**

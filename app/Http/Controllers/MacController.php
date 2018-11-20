@@ -59,7 +59,7 @@ class MacController extends Controller
         $request['ativo'] ? $request['ativo'] = 1 : $request['ativo'] = 0;
         Mac::create($request->all());
 
-         return redirect()->route('macs.index');
+       return redirect()->route('macs.index');
     }
 
     public function show($id)
@@ -91,9 +91,14 @@ class MacController extends Controller
     public function destroy($id)
     {
         $mac = Mac::findOrFail($id);
-        $mac->delete();
-
-        return redirect()->route('macs.index');
+        try {
+            $mac->delete();
+            flash("Mac $mac->mac excluído com sucesso!")->success();
+            return redirect()->route('macs.index');
+        } catch (QueryException $e) {
+            flash($e->getMessage())->error();
+            return redirect()->route('macs.index');
+        }
     }
 
     public function confirm($id)

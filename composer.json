@@ -11,7 +11,8 @@
 	"bestmomo/scafold": "dev-master",
         "symfony/finder": "^3.0",
         "symfony/process": "^3.0",
-        "symfony/symfony": "^3.0"
+        "symfony/symfony": "^3.0",
+        "laracasts/flash": "^3.0"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

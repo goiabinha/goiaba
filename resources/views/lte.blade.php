@@ -215,9 +215,8 @@ desired effect
     <section class="content">
 
       <!-- Your Page Content Here -->
+      @include('flash::message')
       @yield('conteudo')
-
-
 
     </section>
     <!-- /.content -->
@@ -335,6 +334,7 @@ desired effect
   ctx.fillStyle = "#FFFFFF";
   ctx.font = "bold 12pt sans-serif";
   ctx.fillText("<?php print_r($pletra);?>",8,19,12);
+
 </script>
 
 @yield('javascript')
